@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.choerodon.study.infra.mapper.ProjectMapper">
+
+    <sql id="Base_Column_List">
+        id, `name`, `code`, `organizationId`, `imageUrl`, `enabled`, `type`, category
+    </sql>
+
+    <insert id="insertListProject" parameterType="java.util.List">
+        insert into study_project (id, `name`, `code`, `organizationId`, `imageUrl`, `enabled`, `type`, category)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id},#{item.name},#{item.code},#{item.organizationId},#{item.imageUrl},#{item.enabled},#{item.type},#{item.category})
+        </foreach>
+    </insert>
+</mapper>

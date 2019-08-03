@@ -2,6 +2,11 @@ package io.choerodon.study.app.service;
 
 import io.choerodon.study.infra.dto.UserDTO;
 
+import java.util.List;
+
 public interface UserService {
-    UserDTO createOne(UserDTO userDTO);
+
+    boolean insertUser(UserDTO userDTO);
+
+    List<UserDTO> listUser();
 }
